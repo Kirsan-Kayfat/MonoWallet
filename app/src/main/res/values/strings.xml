@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Mono Wallet</string>
+    <string name="name_app">Wallet</string>
+    <string name="description_splash_screen">A minimal wallet app</string>
+    <string name="description_onBoarding">A BETTER and EASIER way to track your income and expenses</string>
+    <string name="button_onBoarding">Get Started</string>
+    <string name="screen_title_login">Login</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="login_login_activity">Login</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="register">Register</string>
+    <string name="registered_already">Registered already?</string>
+    <string name="toast_empty_fields">Error! Fields must not be empty</string>
+    <string name="forgot_password_label">Forgot password</string>
+    <string name="send_link_button">Send Link</string>
+    <string name="check_your_email_label">Check Your Email</string>
+    <string name="check_email_description">Check your email! We\'ve sent you a link to reset your password</string>
+    <string name="button_open_email_app">Open Email App</string>
+    <string name="reset_password">Reset Password</string>
+
+</resources>
