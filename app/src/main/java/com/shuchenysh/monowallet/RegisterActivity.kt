@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
             val login = textInputEditTextEmail.text.toString().trim()
             val password = textInputEditTextPassword.text.toString().trim()
             if (login.isNotEmpty() && password.isNotEmpty()) {
-                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
