@@ -2,35 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_splash_screen_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity">
 
     <TextView
+        android:id="@+id/wallet_splash_screen_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.17"
         android:text="@string/name_app"
         android:textAllCaps="true"
-        android:fontFamily="@font/poppins_bold"
         android:textColor="@color/black"
+        android:textSize="@dimen/font_small"
         android:textStyle="bold"
-        android:textSize="12sp"
-        android:letterSpacing="0.17"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/description_splash_screen_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.17"
         android:text="@string/description_splash_screen"
         android:textColor="@color/gray"
-        android:letterSpacing="0.17"
-        android:textSize="12sp"
+        android:textSize="@dimen/font_small"
         android:textStyle="bold"
-        android:fontFamily="@font/poppins_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

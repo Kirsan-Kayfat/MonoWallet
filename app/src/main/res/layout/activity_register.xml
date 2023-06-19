@@ -14,11 +14,11 @@
         android:layout_marginTop="46dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="@string/register"
         android:letterSpacing="0.17"
+        android:text="@string/register"
         android:textAllCaps="true"
         android:textColor="@color/gray"
-        android:textSize="12sp"
+        android:textSize="@dimen/font_small"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:letterSpacing="0.17"
-            android:textSize="14sp" />
+            android:textSize="@dimen/font_default" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,10 +73,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textSize="14sp"
             android:letterSpacing="0.17"
+            android:textSize="@dimen/font_default"
             app:endIconDrawable="@drawable/eye" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -99,10 +98,10 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_semi_bold"
+        android:letterSpacing="0.08"
         android:text="@string/registered_already"
         android:textColor="@color/gray"
-        android:textSize="12sp"
-        android:letterSpacing="0.08"
+        android:textSize="@dimen/font_small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonRegister" />
 
@@ -112,13 +111,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.08"
         android:paddingHorizontal="5dp"
         android:text="@string/login_login_activity"
         android:textColor="@color/black"
-        android:textSize="12sp"
-        android:letterSpacing="0.08"
+        android:textSize="@dimen/font_small"
         app:layout_constraintStart_toEndOf="@id/textViewDoNotAccount"
         app:layout_constraintTop_toBottomOf="@id/buttonRegister" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

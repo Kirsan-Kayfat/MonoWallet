@@ -1,7 +1,5 @@
 package com.shuchenysh.monowallet
 
-
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,13 +11,10 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, Onboarding::class.java)
+            val intent = Intent(this, OnBoardingActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)
     }
-
-
 }

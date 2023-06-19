@@ -1,5 +1,6 @@
 package com.shuchenysh.monowallet
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         initViews()
 
-        buttonLogin.setOnClickListener( View.OnClickListener {
+        buttonLogin.setOnClickListener(View.OnClickListener {
             val login = textInputEditTextEmail.text.toString().trim()
             val password = textInputEditTextPassword.text.toString().trim()
             if (login.isNotEmpty() && password.isNotEmpty()) {
@@ -46,12 +47,17 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-
-    private fun initViews(){
+    private fun initViews() {
         textInputEditTextEmail = findViewById(R.id.text_input_email_onBoarding)
         textInputEditTextPassword = findViewById(R.id.text_input_password_onBoarding)
         textViewForgotPassword = findViewById(R.id.textViewForgotPassword)
         textViewRegister = findViewById(R.id.textViewRegister)
         buttonLogin = findViewById(R.id.button_login)
+    }
+
+    companion object {
+        fun getStartIntent(context: Context): Intent {
+            return Intent(context, LoginActivity::class.java)
+        }
     }
 }

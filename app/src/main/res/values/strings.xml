@@ -20,5 +20,6 @@
     <string name="check_email_description">Check your email! We\'ve sent you a link to reset your password</string>
     <string name="button_open_email_app">Open Email App</string>
     <string name="reset_password">Reset Password</string>
+    <string name="cash">Cash</string>
 
 </resources>
