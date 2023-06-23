@@ -7,17 +7,19 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import com.google.android.material.textfield.TextInputEditText
+import com.shuchenysh.monowallet.databinding.ActivityForgotPasswordBinding
 
 class ForgotPasswordActivity : AppCompatActivity() {
-    private lateinit var button_sendLink: Button
-    private lateinit var imageView_arrowLeft: ImageView
-    private lateinit var textInputEditTextEmail: TextInputEditText
+
+    private lateinit var binding: ActivityForgotPasswordBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forgot_password)
-        initViews()
-        button_sendLink.setOnClickListener(View.OnClickListener {
+        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.buttonForgotPassword.setOnClickListener(View.OnClickListener {
             val intent = Intent(
                 this@ForgotPasswordActivity,
                 ResetPasswordActivity::class.java
@@ -26,7 +28,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
             finish()
         })
 
-        imageView_arrowLeft.setOnClickListener(View.OnClickListener {
+        binding.arrowLeftImageViewForgotPassword.setOnClickListener(View.OnClickListener {
             val intent = Intent(
                 this@ForgotPasswordActivity,
                 LoginActivity::class.java
@@ -34,11 +36,5 @@ class ForgotPasswordActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
-    }
-
-    private fun initViews() {
-        button_sendLink = findViewById(R.id.button_forgot_password)
-        imageView_arrowLeft = findViewById(R.id.arrow_left_image_view_forgot_password)
-        textInputEditTextEmail = findViewById(R.id.email_text_input_edit_text_forgot_password)
     }
 }
