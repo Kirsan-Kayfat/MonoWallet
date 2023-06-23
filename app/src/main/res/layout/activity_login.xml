@@ -2,21 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_login_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="20dp"
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/label_text_view_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
+        android:letterSpacing="0.17"
         android:text="@string/screen_title_login"
         android:textAllCaps="true"
-        android:letterSpacing="0.17"
         android:textColor="@color/gray"
         android:textSize="@dimen/font_small"
         android:textStyle="bold"
@@ -25,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/image_view_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="94dp"
@@ -36,25 +37,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutEmail"
+        android:id="@+id/email_text_input_layout_forgot_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
         android:hint="@string/email"
         android:textColorHint="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/image_view_register">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_email_onBoarding"
+            android:id="@+id/email_text_input_login"
             android:layout_width="match_parent"
-            android:letterSpacing="0.17"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.17" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPassword"
+        android:id="@+id/password_text_input_layout_login"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,10 +65,10 @@
         app:endIconCheckable="true"
         app:endIconDrawable="@drawable/eye"
         app:endIconMode="custom"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
+        app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout_forgot_password">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_password_onBoarding"
+            android:id="@+id/password_text_input_edit_text_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -77,18 +78,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textViewForgotPassword"
+        android:id="@+id/forgot_password_text_view_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_semi_bold"
+        android:letterSpacing="0.08"
         android:text="@string/forgot_password"
         android:textColor="@color/gray"
-        android:letterSpacing="0.08"
         android:textSize="@dimen/font_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword" />
+        app:layout_constraintTop_toBottomOf="@id/password_text_input_layout_login" />
 
     <Button
         android:id="@+id/button_login"
@@ -97,39 +98,39 @@
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_regular"
-        android:letterSpacing="0.17"
         android:gravity="center"
+        android:letterSpacing="0.17"
         android:text="@string/login_login_activity"
         android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@id/textViewForgotPassword" />
+        app:layout_constraintTop_toBottomOf="@id/forgot_password_text_view_login" />
 
     <TextView
-        android:id="@+id/textViewDoNotAccount"
+        android:id="@+id/do_not_account_text_view_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_semi_bold"
+        android:letterSpacing="0.08"
         android:text="@string/don_t_have_an_account_yet"
         android:textColor="@color/gray"
         android:textSize="@dimen/font_small"
-        android:letterSpacing="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_login" />
 
     <TextView
-        android:id="@+id/textViewRegister"
+        android:id="@+id/register_text_view_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_semi_bold"
+        android:letterSpacing="0.08"
         android:paddingHorizontal="5dp"
         android:text="@string/register"
         android:textColor="@color/black"
         android:textSize="@dimen/font_small"
         android:textStyle="bold"
-        android:letterSpacing="0.08"
-        app:layout_constraintStart_toEndOf="@id/textViewDoNotAccount"
+        app:layout_constraintStart_toEndOf="@id/do_not_account_text_view_register"
         app:layout_constraintTop_toBottomOf="@id/button_login" />
 
 

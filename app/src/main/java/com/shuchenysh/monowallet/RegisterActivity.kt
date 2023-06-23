@@ -45,10 +45,10 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        textInputEditTextEmail = findViewById(R.id.textInputEditTextEmail)
-        textInputEditTextPassword = findViewById(R.id.textInputEditTextPassword)
-        textViewLogin = findViewById(R.id.textViewLogin)
-        buttonRegister = findViewById(R.id.buttonRegister)
+        textInputEditTextEmail = findViewById(R.id.email_text_input_edit_text_forgot_password)
+        textInputEditTextPassword = findViewById(R.id.password_text_input_edit_text_register)
+        textViewLogin = findViewById(R.id.login_text_view_register)
+        buttonRegister = findViewById(R.id.enter_button_register)
 
     }
 }

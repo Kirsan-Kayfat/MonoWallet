@@ -48,10 +48,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        textInputEditTextEmail = findViewById(R.id.text_input_email_onBoarding)
-        textInputEditTextPassword = findViewById(R.id.text_input_password_onBoarding)
-        textViewForgotPassword = findViewById(R.id.textViewForgotPassword)
-        textViewRegister = findViewById(R.id.textViewRegister)
+        textInputEditTextEmail = findViewById(R.id.email_text_input_login)
+        textInputEditTextPassword = findViewById(R.id.password_text_input_edit_text_login)
+        textViewForgotPassword = findViewById(R.id.forgot_password_text_view_login)
+        textViewRegister = findViewById(R.id.register_text_view_login)
         buttonLogin = findViewById(R.id.button_login)
     }
 

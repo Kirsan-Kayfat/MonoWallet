@@ -37,8 +37,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        button_sendLink = findViewById(R.id.button_sendLink)
-        imageView_arrowLeft = findViewById(R.id.imageView_arrowLeft)
-        textInputEditTextEmail = findViewById(R.id.textInputEditTextEmail)
+        button_sendLink = findViewById(R.id.button_forgot_password)
+        imageView_arrowLeft = findViewById(R.id.arrow_left_image_view_forgot_password)
+        textInputEditTextEmail = findViewById(R.id.email_text_input_edit_text_forgot_password)
     }
 }

@@ -8,7 +8,7 @@
     tools:context=".OnBoardingActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_text_view_onboarding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
@@ -24,11 +24,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/description_text_view_onboarding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:letterSpacing="0.11"
+        android:letterSpacing="0.17"
         android:text="@string/description_onBoarding"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -37,18 +38,19 @@
         app:layout_constraintBottom_toTopOf="@+id/button_onBoarding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_onboarding"
         app:lineHeight="27sp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_view_onboarding"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:contentDescription="@null"
         android:src="@drawable/undraw_finance_onboarding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/title_text_view_onboarding" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_onBoarding"

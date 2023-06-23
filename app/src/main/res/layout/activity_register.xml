@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/parent_register_container"
     android:layout_marginHorizontal="20dp"
     tools:context=".RegisterActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/label_text_view_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
@@ -25,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/image_view_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="94dp"
@@ -36,18 +37,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutEmail"
+        android:id="@+id/email_text_input_layout_register"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
-
         android:hint="@string/email"
         android:textColorHint="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/image_view_register">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextEmail"
+            android:id="@+id/email_text_input_edit_text_forgot_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:letterSpacing="0.17"
@@ -56,7 +56,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPassword"
+        android:id="@+id/password_text_input_layout_register"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,10 +66,10 @@
         app:endIconCheckable="true"
         app:endIconDrawable="@drawable/eye"
         app:endIconMode="custom"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
+        app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout_register">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextPassword"
+            android:id="@+id/password_text_input_edit_text_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -78,21 +78,22 @@
             app:endIconDrawable="@drawable/eye" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <Button
-        android:id="@+id/buttonRegister"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enter_button_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:fontFamily="@font/poppins_regular"
         android:letterSpacing="0.11"
         android:text="@string/register"
         android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword" />
+        app:layout_constraintTop_toBottomOf="@id/password_text_input_layout_register" />
 
     <TextView
-        android:id="@+id/textViewDoNotAccount"
+        android:id="@+id/do_not_account_text_view_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
@@ -103,10 +104,10 @@
         android:textColor="@color/gray"
         android:textSize="@dimen/font_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonRegister" />
+        app:layout_constraintTop_toBottomOf="@id/enter_button_register" />
 
     <TextView
-        android:id="@+id/textViewLogin"
+        android:id="@+id/login_text_view_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -116,7 +117,7 @@
         android:text="@string/login_login_activity"
         android:textColor="@color/black"
         android:textSize="@dimen/font_small"
-        app:layout_constraintStart_toEndOf="@id/textViewDoNotAccount"
-        app:layout_constraintTop_toBottomOf="@id/buttonRegister" />
+        app:layout_constraintStart_toEndOf="@id/do_not_account_text_view_register"
+        app:layout_constraintTop_toBottomOf="@id/enter_button_register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
