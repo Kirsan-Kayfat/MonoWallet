@@ -3,17 +3,19 @@ package com.shuchenysh.monowallet
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.shuchenysh.monowallet.databinding.ActivityOnboardingBinding
 
 class OnBoardingActivity : AppCompatActivity() {
 
-    private lateinit var buttonOnBoarding: Button
+    private lateinit var binding: ActivityOnboardingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_onboarding)
-        buttonOnBoarding = findViewById(R.id.button_onBoarding)
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        buttonOnBoarding.setOnClickListener {
+        binding.buttonOnBoarding.setOnClickListener {
             val intent = LoginActivity.getStartIntent(this)
             startActivity(intent)
         }

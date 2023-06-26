@@ -9,7 +9,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/label_text_view_register"
+        android:id="@+id/label_text_view_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/image_view_register"
+        android:id="@+id/image_view_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="94dp"
@@ -37,14 +37,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_text_input_layout_forgot_password"
+        android:id="@+id/email_text_input_layout_login"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
         android:hint="@string/email"
         android:textColorHint="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_register">
+        app:layout_constraintTop_toBottomOf="@+id/image_view_login">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_text_input_login"
@@ -65,7 +65,7 @@
         app:endIconCheckable="true"
         app:endIconDrawable="@drawable/eye"
         app:endIconMode="custom"
-        app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout_forgot_password">
+        app:layout_constraintTop_toBottomOf="@+id/email_text_input_layout_login">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_text_input_edit_text_login"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@id/forgot_password_text_view_login" />
 
     <TextView
-        android:id="@+id/do_not_account_text_view_register"
+        android:id="@+id/do_not_account_text_view_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -130,8 +130,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/font_small"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/do_not_account_text_view_register"
+        app:layout_constraintStart_toEndOf="@id/do_not_account_text_view_login"
         app:layout_constraintTop_toBottomOf="@id/button_login" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,32 +4,28 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import com.google.android.material.textfield.TextInputEditText
+import com.shuchenysh.monowallet.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var textInputEditTextEmail: TextInputEditText
-    private lateinit var textInputEditTextPassword: TextInputEditText
-    private lateinit var textViewLogin: TextView
-    private lateinit var buttonRegister: Button
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
-        initViews()
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        textViewLogin.setOnClickListener(View.OnClickListener {
+        binding.loginTextViewRegister.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
         })
 
-        buttonRegister.setOnClickListener(View.OnClickListener {
-            val login = textInputEditTextEmail.text.toString().trim()
-            val password = textInputEditTextPassword.text.toString().trim()
+        binding.enterButtonRegister.setOnClickListener(View.OnClickListener {
+            val login = binding.emailTextInputEditTextRegister.text.toString().trim()
+            val password = binding.passwordTextInputEditTextRegister.text.toString().trim()
             if (login.isNotEmpty() && password.isNotEmpty()) {
                 val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
                 startActivity(intent)
@@ -42,13 +38,5 @@ class RegisterActivity : AppCompatActivity() {
                 ).show()
             }
         })
-    }
-
-    private fun initViews() {
-        textInputEditTextEmail = findViewById(R.id.email_text_input_edit_text_forgot_password)
-        textInputEditTextPassword = findViewById(R.id.password_text_input_edit_text_register)
-        textViewLogin = findViewById(R.id.login_text_view_register)
-        buttonRegister = findViewById(R.id.enter_button_register)
-
     }
 }
