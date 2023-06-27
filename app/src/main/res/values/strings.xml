@@ -21,5 +21,6 @@
     <string name="button_open_email_app">Open Email App</string>
     <string name="reset_password">Reset Password</string>
     <string name="cash">Cash</string>
+    <string name="error_incorrect_email">Enter a valid email address</string>
 
 </resources>
