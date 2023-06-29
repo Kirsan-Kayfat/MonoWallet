@@ -44,7 +44,7 @@
         tools:text="$ 1,452.83" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_month_home"
+        android:id="@+id/month_recyclerView_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="269dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_detail_home"
+        android:id="@+id/detail_recyclerView_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"

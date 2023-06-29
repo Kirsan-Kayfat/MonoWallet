@@ -5,11 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
-import com.google.android.material.textfield.TextInputEditText
+import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
