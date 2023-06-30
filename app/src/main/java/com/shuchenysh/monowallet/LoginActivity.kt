@@ -38,7 +38,6 @@ class LoginActivity : AppCompatActivity() {
             if (login.isNotEmpty() && password.isNotEmpty()) {
                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                 startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(
                     this, R.string.toast_empty_fields,
@@ -50,13 +49,11 @@ class LoginActivity : AppCompatActivity() {
         binding.registerTextViewLogin.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
-            finish()
         })
 
         binding.forgotPasswordTextViewLogin.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
             startActivity(intent)
-            finish()
         })
     }
 

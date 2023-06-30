@@ -20,7 +20,6 @@ class RegisterActivity : AppCompatActivity() {
         binding.loginTextViewRegister.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
-            finish()
         })
 
         binding.enterButtonRegister.setOnClickListener(View.OnClickListener {
@@ -29,7 +28,6 @@ class RegisterActivity : AppCompatActivity() {
             if (login.isNotEmpty() && password.isNotEmpty()) {
                 val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
                 startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(
                     this,
