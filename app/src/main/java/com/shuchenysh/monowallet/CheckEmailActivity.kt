@@ -10,8 +10,7 @@ class CheckEmailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCheckEmailBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = ActivityCheckEmailBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
     }
 }

@@ -10,8 +10,6 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityResetPasswordBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = ActivityResetPasswordBinding.inflate(layoutInflater).also { setContentView(it.root) }
     }
 }

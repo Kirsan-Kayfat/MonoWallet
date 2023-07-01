@@ -16,9 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         binding.emailTextInputLogin.doOnTextChanged { text, start, before, count ->
             if (text.toString().endsWith("@mail.ru") ||

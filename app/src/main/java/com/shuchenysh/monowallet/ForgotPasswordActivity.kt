@@ -15,9 +15,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = ActivityForgotPasswordBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         binding.buttonForgotPassword.setOnClickListener(View.OnClickListener {
             val intent = Intent(

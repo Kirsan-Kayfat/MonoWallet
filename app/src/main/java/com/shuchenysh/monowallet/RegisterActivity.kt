@@ -13,9 +13,8 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = ActivityRegisterBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
 
         binding.loginTextViewRegister.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
