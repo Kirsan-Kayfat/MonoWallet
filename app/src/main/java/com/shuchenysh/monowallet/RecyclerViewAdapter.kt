@@ -26,9 +26,11 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionV
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = transactionInfoList[position]
+        val money = "$ " + transaction.money
+        val description = transaction.description
         with(holder) {
-            textViewMoney.text = "$ " + transaction.money
-            textViewDescription.text = transaction.description
+            textViewMoney.text = money
+            textViewDescription.text = description
         }
     }
 
