@@ -13,10 +13,12 @@ import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.emailTextInputLogin.doOnTextChanged { text, start, before, count ->
             if (text.toString().endsWith("@mail.ru") ||
@@ -34,6 +36,10 @@ class LoginActivity : AppCompatActivity() {
             val login = binding.emailTextInputLogin.text.toString().trim()
             val password = binding.passwordTextInputEditTextLogin.text.toString().trim()
             if (login.isNotEmpty() && password.isNotEmpty()) {
+                val user = User(0, login, password)
+                val userFromDB = viewModel.getUser(user.id)
+
+                if(user.id == userFromDB.id)
                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                 startActivity(intent)
             } else {
