@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         binding.emailTextInputLogin.doOnTextChanged { text, start, before, count ->
             if (text.toString().endsWith("@mail.ru") ||
@@ -37,16 +37,25 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordTextInputEditTextLogin.text.toString().trim()
             if (login.isNotEmpty() && password.isNotEmpty()) {
                 val user = User(0, login, password)
-                val userFromDB = viewModel.getUser(user.id)
-
-                if(user.id == userFromDB.id)
-                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(
-                    this, R.string.toast_empty_fields,
-                    Toast.LENGTH_SHORT
-                ).show()
+                if (user.id == viewModel.getUser(user.id).id) {
+                    if (user.login == viewModel.getUser(user.id).login && user.password == viewModel.getUser(
+                            user.id
+                        ).password
+                    ) {
+                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(
+                            this, getString(R.string.this_user_was_not_found),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    Toast.makeText(
+                        this, R.string.toast_empty_fields,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         })
 

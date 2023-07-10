@@ -11,5 +11,4 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getUser(userID: Int): User = db.usersDao().getUser(userID)
 
-
 }

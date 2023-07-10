@@ -22,5 +22,6 @@
     <string name="reset_password">Reset Password</string>
     <string name="cash">Cash</string>
     <string name="error_incorrect_email">Enter a valid email address</string>
+    <string name="this_user_was_not_found">This user was not found</string>
 
 </resources>
