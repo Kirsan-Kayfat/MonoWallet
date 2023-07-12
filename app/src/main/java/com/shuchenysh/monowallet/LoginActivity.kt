@@ -13,10 +13,12 @@ import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         binding.emailTextInputLogin.doOnTextChanged { text, start, before, count ->
             if (text.toString().endsWith("@mail.ru") ||
@@ -34,13 +36,26 @@ class LoginActivity : AppCompatActivity() {
             val login = binding.emailTextInputLogin.text.toString().trim()
             val password = binding.passwordTextInputEditTextLogin.text.toString().trim()
             if (login.isNotEmpty() && password.isNotEmpty()) {
-                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(
-                    this, R.string.toast_empty_fields,
-                    Toast.LENGTH_SHORT
-                ).show()
+                val user = User(0, login, password)
+                if (user.id == viewModel.getUser(user.id).id) {
+                    if (user.login == viewModel.getUser(user.id).login && user.password == viewModel.getUser(
+                            user.id
+                        ).password
+                    ) {
+                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(
+                            this, getString(R.string.this_user_was_not_found),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    Toast.makeText(
+                        this, R.string.toast_empty_fields,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         })
 
