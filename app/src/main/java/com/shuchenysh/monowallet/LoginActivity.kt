@@ -35,44 +35,47 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonLogin.setOnClickListener(View.OnClickListener {
             val login = binding.emailTextInputLogin.text.toString().trim()
             val password = binding.passwordTextInputEditTextLogin.text.toString().trim()
+            var count = 0
             if (login.isNotEmpty() && password.isNotEmpty()) {
-                val user = User(0, login, password)
-                if (user.id == viewModel.getUser(user.id).id) {
-                    if (user.login == viewModel.getUser(user.id).login && user.password == viewModel.getUser(
-                            user.id
-                        ).password
-                    ) {
+                while (true) {
+                    if (login == viewModel.getUser(count).login &&
+                        password == viewModel.getUser(count).password) {
                         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                         startActivity(intent)
+                        break
                     } else {
+                        count++
                         Toast.makeText(
                             this, getString(R.string.this_user_was_not_found),
                             Toast.LENGTH_SHORT
                         ).show()
+                        break
                     }
-                } else {
-                    Toast.makeText(
-                        this, R.string.toast_empty_fields,
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
+            } else {
+                Toast.makeText(
+                    this, R.string.toast_empty_fields,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
 
-        binding.registerTextViewLogin.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-            startActivity(intent)
-        })
+    binding.registerTextViewLogin.setOnClickListener(View.OnClickListener
+    {
+        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+        startActivity(intent)
+    })
 
-        binding.forgotPasswordTextViewLogin.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
-            startActivity(intent)
-        })
-    }
+    binding.forgotPasswordTextViewLogin.setOnClickListener(View.OnClickListener
+    {
+        val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
+        startActivity(intent)
+    })
+}
 
-    companion object {
-        fun getStartIntent(context: Context): Intent {
-            return Intent(context, LoginActivity::class.java)
-        }
+companion object {
+    fun getStartIntent(context: Context): Intent {
+        return Intent(context, LoginActivity::class.java)
     }
+}
 }
