@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionViewHolder>() {
-
-    var transactionInfoList = arrayListOf<Transaction>()
+    var transactionInfoList = listOf<Transaction>()
     set(value) {
         field = value
         notifyDataSetChanged()
@@ -27,10 +26,8 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionV
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = transactionInfoList[position]
         val money = "$ " + transaction.money
-        val description = transaction.description
         with(holder) {
-            textViewMoney.text = money
-            textViewDescription.text = description
+
         }
     }
 

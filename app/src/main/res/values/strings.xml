@@ -23,5 +23,9 @@
     <string name="cash">Cash</string>
     <string name="error_incorrect_email">Enter a valid email address</string>
     <string name="this_user_was_not_found">This user was not found</string>
+    <string name="new_transaction_label">New Transaction</string>
+    <string name="add_transaction_button">Add Transaction</string>
+    <string name="amount">AMOUNT</string>
+    <string name="category">CATEGORY</string>
 
 </resources>

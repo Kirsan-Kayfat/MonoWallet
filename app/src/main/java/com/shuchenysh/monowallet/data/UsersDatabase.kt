@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.shuchenysh.monowallet.Transaction
 import com.shuchenysh.monowallet.User
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Transaction::class], version = 1)
 abstract class UsersDatabase : RoomDatabase() {
     companion object {
         private var db: UsersDatabase? = null
@@ -23,4 +24,5 @@ abstract class UsersDatabase : RoomDatabase() {
         }
     }
     abstract fun usersDao(): UsersDao
+    abstract fun transactionDao(): TransactionDao
 }

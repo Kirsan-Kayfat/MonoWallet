@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityRegisterBinding
 
@@ -22,6 +23,18 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
         })
+
+        binding.emailTextInputEditTextRegister.doOnTextChanged { text, start, before, count ->
+            if (text.toString().endsWith("@mail.ru") ||
+                text.toString().endsWith("@gmail.com") ||
+                text.toString().endsWith("@bk.ru") ||
+                text.toString().endsWith("@yandex.ru")
+            ) {
+                binding.emailTextInputLayoutRegister.error = null
+            } else {
+                binding.emailTextInputLayoutRegister.error = getString(R.string.error_incorrect_email)
+            }
+        }
 
         binding.enterButtonRegister.setOnClickListener(View.OnClickListener {
             val login = binding.emailTextInputEditTextRegister.text.toString().trim()
