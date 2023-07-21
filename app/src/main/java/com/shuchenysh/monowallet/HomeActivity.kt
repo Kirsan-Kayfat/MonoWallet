@@ -4,13 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.shuchenysh.monowallet.data.UsersDatabase
 import com.shuchenysh.monowallet.databinding.ActivityHomeBinding
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.util.*
-
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding

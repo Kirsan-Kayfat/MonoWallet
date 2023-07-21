@@ -27,6 +27,7 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionV
         val transaction = transactionInfoList[position]
         val money = "$ " + transaction.money
         with(holder) {
+
         }
     }
 

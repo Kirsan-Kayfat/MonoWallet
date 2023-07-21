@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.shuchenysh.monowallet.Transaction
 import com.shuchenysh.monowallet.User
 
-@Database(entities = [User::class, Transaction::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Transaction::class], version = 1)
 abstract class UsersDatabase : RoomDatabase() {
     companion object {
         private var db: UsersDatabase? = null
