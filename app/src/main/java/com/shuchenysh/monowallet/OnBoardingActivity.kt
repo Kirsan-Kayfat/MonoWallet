@@ -1,5 +1,6 @@
 package com.shuchenysh.monowallet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,7 +15,7 @@ class OnBoardingActivity : AppCompatActivity() {
         binding = ActivityOnboardingBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         binding.buttonOnBoarding.setOnClickListener {
-            val intent = LoginActivity.getStartIntent(this)
+            val intent = Intent(this@OnBoardingActivity, LoginActivity::class.java)
             startActivity(intent)
         }
     }

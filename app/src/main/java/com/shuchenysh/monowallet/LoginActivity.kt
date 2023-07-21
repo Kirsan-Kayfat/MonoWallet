@@ -37,21 +37,10 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordTextInputEditTextLogin.text.toString().trim()
             var count = 0
             if (login.isNotEmpty() && password.isNotEmpty()) {
-                while (true) {
-                    if (login == viewModel.getUser(count).login &&
-                        password == viewModel.getUser(count).password) {
-                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                        startActivity(intent)
-                        break
-                    } else {
-                        count++
-                        Toast.makeText(
-                            this, getString(R.string.this_user_was_not_found),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        break
-                    }
-                }
+
+                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                startActivity(intent)
+
             } else {
                 Toast.makeText(
                     this, R.string.toast_empty_fields,
@@ -60,22 +49,16 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
-    binding.registerTextViewLogin.setOnClickListener(View.OnClickListener
-    {
-        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-        startActivity(intent)
-    })
+        binding.registerTextViewLogin.setOnClickListener(View.OnClickListener
+        {
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
+        })
 
-    binding.forgotPasswordTextViewLogin.setOnClickListener(View.OnClickListener
-    {
-        val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
-        startActivity(intent)
-    })
-}
-
-companion object {
-    fun getStartIntent(context: Context): Intent {
-        return Intent(context, LoginActivity::class.java)
+        binding.forgotPasswordTextViewLogin.setOnClickListener(View.OnClickListener
+        {
+            val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        })
     }
-}
 }
