@@ -9,6 +9,6 @@ data class Transaction(
     val id: Int,
     val arrow: Int,
     val amount: String,
-    val categoryImage: Int,
+    val category: Int,
     val money: Int
 )
