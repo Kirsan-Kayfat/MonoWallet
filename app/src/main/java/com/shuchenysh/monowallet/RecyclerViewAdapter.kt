@@ -25,9 +25,15 @@ class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionV
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = transactionInfoList[position]
-        val money = "$ " + transaction.money
+        val money = transaction.money
+        val arrow = transaction.arrow
+        val category = transaction.category
+        val amount = transaction.amount
         with(holder) {
-
+            imageViewArrow.setImageResource(arrow)
+            textViewMoney.text = money.toString()
+            imageViewCategory.setImageResource(category)
+            textViewDescription.text = amount
         }
     }
 
