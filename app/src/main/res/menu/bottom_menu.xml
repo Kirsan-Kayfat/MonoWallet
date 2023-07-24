@@ -3,19 +3,16 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/home"
-        android:title="@string/home_bottom_bar"
-        />
+        android:title="@string/home_bottom_bar" />
 
     <item
         android:id="@+id/add"
         android:icon="@drawable/add_bottom_bar"
-        android:title="@string/new_transaction_bottom_bar"
-        />
+        android:title="@string/new_transaction_bottom_bar" />
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/profile_bottom_bar"
-        android:title="@string/profile_bottom_bar"
-        />
+        android:title="@string/profile_bottom_bar" />
 
 </menu>

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.shuchenysh.monowallet.R
 
 
-class item_add : Fragment() {
+class AddFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
