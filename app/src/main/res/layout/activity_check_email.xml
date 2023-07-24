@@ -51,11 +51,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_check_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="624dp"
+        android:insetBottom="0dp"
+        android:insetTop="0dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_regular"
         android:letterSpacing="0.14"
