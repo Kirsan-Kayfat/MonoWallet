@@ -3,9 +3,6 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
@@ -21,35 +18,35 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         binding.loginLoginButton.setOnClickListener {
-            val login = binding.emailTextInputLogin.text.toString().trim()
-            val password = binding.passwordTextInputEditTextLogin.text.toString().trim()
-            if (!validateEmailField(login) and !validatePasswordField(password)) return@setOnClickListener
+            val login = binding.loginLoginTextInputEdit.text.toString().trim()
+            val password = binding.passwordLoginTextInputEdit.text.toString().trim()
+            if (!isValidateEmailField(login) and !isValidatePasswordField(password))
+                return@setOnClickListener
 
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(intent)
         }
 
-        binding.registerTextViewLogin.setOnClickListener(View.OnClickListener
-        {
+        binding.registerLoginText.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
-        })
+        }
 
-        binding.forgotPasswordTextViewLogin.setOnClickListener {
+        binding.forgotPasswordLoginText.setOnClickListener {
             val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
     }
 
-    private fun validateEmailField(email: String): Boolean {
+    private fun isValidateEmailField(email: String): Boolean {
         return when {
             email.isEmpty() -> {
-                binding.emailTextInputLayoutLogin.error = "Field is not empty"
+                binding.loginLoginTextInputLayout.error = "Field is not empty"
                 false
             }
 
             email.isEmailInvalid() -> {
-                binding.emailTextInputLayoutLogin.error = "Email is invalid"
+                binding.loginLoginTextInputLayout.error = "Email is invalid"
                 false
             }
 
@@ -57,15 +54,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun validatePasswordField(password: String): Boolean {
+    private fun isValidatePasswordField(password: String): Boolean {
         return when {
             password.isEmpty() -> {
-                binding.passwordTextInputLayoutLogin.error = "Field is not empty"
+                binding.passwordLoginTextInputLayout.error = "Field is not empty"
                 false
             }
 
             password != PASSWORD -> {
-                binding.passwordTextInputLayoutLogin.error = "Password is incorrect"
+                binding.passwordLoginTextInputLayout.error = "Password is incorrect"
                 false
             }
 
@@ -74,6 +71,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val PASSWORD = "123456"
+        private const val PASSWORD = "12345"
     }
 }
