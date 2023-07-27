@@ -16,10 +16,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding =
             ActivityForgotPasswordBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        binding.emailForgotPasswordTextInputEdit.doOnTextChanged { text, _, _, _ ->
         binding.sendLinkForgotPasswordButton.setOnClickListener {
-            if (!isValidateEmailField(text.toString()))
-                return@setOnClickListener
+            val text = binding.emailForgotPasswordTextInputEdit.text.toString()
+            if (!isValidateEmailField(text)) return@setOnClickListener
 
             val intent = Intent(
                 this@ForgotPasswordActivity,
@@ -28,7 +27,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-    }
 
         binding.backForgotPasswordImage.setOnClickListener {
             finish()
