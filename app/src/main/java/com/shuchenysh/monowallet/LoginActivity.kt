@@ -41,32 +41,41 @@ class LoginActivity : AppCompatActivity() {
     private fun isValidateEmailField(email: String): Boolean {
         return when {
             email.isEmpty() -> {
-                binding.loginLoginTextInputLayout.error = "Field is not empty"
+                binding.loginLoginTextInputLayout.error =
+                    getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
             email.isEmailInvalid() -> {
-                binding.loginLoginTextInputLayout.error = "Email is invalid"
+                binding.loginLoginTextInputLayout.error = getString(R.string.email_is_invalid)
                 false
             }
 
-            else -> true
+            else -> {
+                binding.loginLoginTextInputLayout.error = null
+                true
+            }
         }
     }
 
     private fun isValidatePasswordField(password: String): Boolean {
         return when {
             password.isEmpty() -> {
-                binding.passwordLoginTextInputLayout.error = "Field is not empty"
+                binding.passwordLoginTextInputLayout.error =
+                    getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
             password != PASSWORD -> {
-                binding.passwordLoginTextInputLayout.error = "Password is incorrect"
+                binding.passwordLoginTextInputLayout.error =
+                    getString(R.string.password_is_incorrect)
                 false
             }
 
-            else -> true
+            else -> {
+                binding.passwordLoginTextInputLayout.error = null
+                true
+            }
         }
     }
 
