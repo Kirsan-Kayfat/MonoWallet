@@ -3,6 +3,7 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
@@ -17,14 +18,17 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
+
         binding.loginLoginButton.setOnClickListener {
             val login = binding.loginLoginTextInputEdit.text.toString().trim()
             val password = binding.passwordLoginTextInputEdit.text.toString().trim()
+
             if (!isValidateEmailField(login) and !isValidatePasswordField(password))
                 return@setOnClickListener
 
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(intent)
+
         }
 
         binding.registerLoginText.setOnClickListener {
@@ -35,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
         binding.forgotPasswordLoginText.setOnClickListener {
             val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
             startActivity(intent)
+
         }
     }
 
