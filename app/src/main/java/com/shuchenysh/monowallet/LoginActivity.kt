@@ -3,7 +3,7 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.widget.doOnTextChanged
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
@@ -18,28 +18,35 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
+        with(binding) {
+            loginLoginButton.setOnClickListener {
+                val login = loginLoginTextInputEdit.text.toString().trim()
+                val password = passwordLoginTextInputEdit.text.toString().trim()
 
-        binding.loginLoginButton.setOnClickListener {
-            val login = binding.loginLoginTextInputEdit.text.toString().trim()
-            val password = binding.passwordLoginTextInputEdit.text.toString().trim()
+                if (!isValidateEmailField(login) and !isValidatePasswordField(password))
+                    return@setOnClickListener
 
-            if (!isValidateEmailField(login) and !isValidatePasswordField(password))
-                return@setOnClickListener
+                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                startActivity(intent)
+            }
 
-            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-            startActivity(intent)
+            loginLoginTextInputEdit.doAfterTextChanged {
+                loginLoginTextInputLayout.error = null
+            }
 
-        }
+            passwordLoginTextInputEdit.doAfterTextChanged {
+                passwordLoginTextInputLayout.error = null
+            }
 
-        binding.registerLoginText.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-            startActivity(intent)
-        }
+            registerLoginText.setOnClickListener {
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                startActivity(intent)
+            }
 
-        binding.forgotPasswordLoginText.setOnClickListener {
-            val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
-            startActivity(intent)
-
+            forgotPasswordLoginText.setOnClickListener {
+                val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -70,13 +77,11 @@ class LoginActivity : AppCompatActivity() {
                     getString(R.string.the_field_cannot_be_empty)
                 false
             }
-
             password != PASSWORD -> {
                 binding.passwordLoginTextInputLayout.error =
                     getString(R.string.password_is_incorrect)
                 false
             }
-
             else -> {
                 binding.passwordLoginTextInputLayout.error = null
                 true

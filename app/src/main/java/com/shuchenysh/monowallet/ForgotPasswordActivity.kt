@@ -13,8 +13,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =
-            ActivityForgotPasswordBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        binding = ActivityForgotPasswordBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         binding.sendLinkForgotPasswordButton.setOnClickListener {
             val text = binding.emailForgotPasswordTextInputEdit.text.toString()
