@@ -3,54 +3,71 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.core.widget.doOnTextChanged
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityRegisterBinding
+import com.shuchenysh.monowallet.extension.isEmailInvalid
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var viewModel: RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        binding.loginTextViewRegister.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
-        })
+        binding.registerRegisterButton.setOnClickListener {
+            val login = binding.emailFieldRegisterText.text.toString().trim()
+            val password = binding.passwordRegisterTextInputEdit.text.toString().trim()
 
-        binding.emailTextInputEditTextRegister.doOnTextChanged { text, start, before, count ->
-            if (text.toString().endsWith("@mail.ru") ||
-                text.toString().endsWith("@gmail.com") ||
-                text.toString().endsWith("@bk.ru") ||
-                text.toString().endsWith("@yandex.ru")
-            ) {
-                binding.emailTextInputLayoutRegister.error = null
-            } else {
-                binding.emailTextInputLayoutRegister.error = getString(R.string.error_incorrect_email)
+            if (!isValidateEmailField(login) and !isValidatePasswordField(password)) {
+                return@setOnClickListener
             }
+            val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
+            startActivity(intent)
         }
 
-        binding.enterButtonRegister.setOnClickListener(View.OnClickListener {
-            val login = binding.emailTextInputEditTextRegister.text.toString().trim()
-            val password = binding.passwordTextInputEditTextRegister.text.toString().trim()
-            if (login.isNotEmpty() && password.isNotEmpty()) {
-                val user = User(0, login, password)
-                viewModel.addUser(user)
-                val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(
-                    this,
-                    R.string.toast_empty_fields,
-                    Toast.LENGTH_SHORT
-                ).show()
+        binding.emailFieldRegisterText.doAfterTextChanged { text ->
+            isValidateEmailField(text.toString())
+        }
+
+        binding.passwordRegisterTextInputEdit.doAfterTextChanged { text ->
+            isValidatePasswordField(text.toString())
+        }
+    }
+
+    private fun isValidateEmailField(text: String): Boolean {
+        return when {
+            text.isEmpty() -> {
+                binding.emailFieldRegisterContainer.error = getString(R.string.the_field_cannot_be_empty)
+                false
             }
-        })
+
+            text.isEmailInvalid() -> {
+                binding.emailFieldRegisterContainer.error = getString(R.string.email_is_invalid)
+                false
+            }
+
+            else -> true
+
+        }
+    }
+
+    private fun isValidatePasswordField(password: String): Boolean {
+        return if (password.isEmpty()) {
+            binding.passwordRegisterTextInputLayout.error =
+                getString(R.string.the_field_cannot_be_empty)
+            false
+        } else if (password.length < 6) {
+            binding.passwordRegisterTextInputLayout.error =
+                getString(R.string.password_less_than_six_characters)
+            false
+        } else {
+            true
+        }
+
     }
 }
+
+

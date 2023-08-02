@@ -5,61 +5,53 @@
     android:id="@+id/parent_onBoarding_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
     tools:context=".OnBoardingActivity">
 
     <TextView
-        android:id="@+id/title_text_view_onboarding"
+        android:id="@+id/label_onBoarding_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="46dp"
         android:fontFamily="@font/poppins_bold"
         android:letterSpacing="0.17"
         android:text="@string/name_app"
         android:textAllCaps="true"
-        android:textColor="@color/gray"
         android:textSize="@dimen/font_small"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/description_text_view_onboarding"
-        android:layout_width="match_parent"
+        android:id="@+id/description_onBoarding_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/poppins_bold"
-        android:gravity="center"
         android:letterSpacing="0.17"
         android:text="@string/description_onBoarding"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/font_large"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button_onBoarding"
+        app:layout_constraintBottom_toTopOf="@+id/getStart_onBoarding_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_onboarding"
+        app:layout_constraintTop_toBottomOf="@+id/image_onBoarding_image"
         app:lineHeight="27sp" />
 
     <ImageView
-        android:id="@+id/image_view_onboarding"
+        android:id="@+id/image_onBoarding_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="150dp"
-        android:contentDescription="@null"
         android:src="@drawable/undraw_finance_onboarding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_text_view_onboarding" />
+        app:layout_constraintTop_toBottomOf="@+id/label_onBoarding_text" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_onBoarding"
-        android:layout_width="match_parent"
+        android:id="@+id/getStart_onBoarding_button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="48dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_regular"

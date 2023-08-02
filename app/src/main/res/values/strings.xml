@@ -33,5 +33,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="money">MONEY</string>
+    <string name="the_field_cannot_be_empty">The field cannot be empty</string>
+    <string name="email_is_invalid">Email is invalid</string>
+    <string name="password_is_incorrect">Password is incorrect</string>
+    <string name="password_less_than_six_characters">Password cannot be less than 6 characters</string>
 
 </resources>

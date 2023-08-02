@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.shuchenysh.monowallet.R
 
-class item_home : Fragment() {
+class ProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_home, container, false)
+        return inflater.inflate(R.layout.fragment_item_profile, container, false)
     }
 
 }

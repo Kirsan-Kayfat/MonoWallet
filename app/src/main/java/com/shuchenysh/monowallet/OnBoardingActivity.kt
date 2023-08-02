@@ -14,7 +14,7 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        binding.buttonOnBoarding.setOnClickListener {
+        binding.getStartOnBoardingButton.setOnClickListener {
             val intent = Intent(this@OnBoardingActivity, LoginActivity::class.java)
             startActivity(intent)
         }
