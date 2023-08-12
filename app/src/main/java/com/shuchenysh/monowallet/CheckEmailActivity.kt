@@ -15,7 +15,7 @@ class CheckEmailActivity : AppCompatActivity() {
         binding = ActivityCheckEmailBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         binding.openEmailAppCheckEmailButton.setOnClickListener {
-            val intent = Intent(this@CheckEmailActivity, LoginActivity::class.java)
+            val intent = Intent(this@CheckEmailActivity, ResetPasswordActivity::class.java)
             startActivity(intent)
         }
 
