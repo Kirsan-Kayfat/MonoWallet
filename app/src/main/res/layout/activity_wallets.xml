@@ -6,4 +6,98 @@
     android:layout_height="match_parent"
     tools:context=".WalletsActivity">
 
+    <TextView
+        android:id="@+id/label_text_wallets_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.17"
+        android:text="@string/wallets"
+        android:textAllCaps="true"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_card_wallets_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="336dp"
+        android:src="@drawable/credit_card_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_text_wallets_text" />
+
+    <TextView
+        android:id="@+id/name_card_wallets_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/debit_card"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_card_wallets_image" />
+
+    <TextView
+        android:id="@+id/money_card_wallets_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="$ 0.0"
+        android:textSize="@dimen/font_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_card_wallets_text" />
+
+    <ImageView
+        android:id="@+id/image_cash_wallets_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/grid_3x3_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/money_card_wallets_text" />
+
+    <TextView
+        android:id="@+id/name_cash_wallets_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/cash"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_cash_wallets_image" />
+
+    <TextView
+        android:id="@+id/money_cash_wallets_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="$ 0.0"
+        android:textSize="@dimen/font_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_cash_wallets_text" />
+
+    <ImageButton
+        android:id="@+id/close_screen_wallets_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTintMode="screen"
+        android:src="@drawable/arrow_up_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/money_cash_wallets_text" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

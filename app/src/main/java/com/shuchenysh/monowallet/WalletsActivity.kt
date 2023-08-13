@@ -11,5 +11,9 @@ class WalletsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWalletsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.closeScreenWalletsImage.setOnClickListener {
+            finish()
+        }
     }
 }

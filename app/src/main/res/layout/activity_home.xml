@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +7,7 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/textView_cash_home"
+        android:id="@+id/label_home_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -16,62 +15,66 @@
         android:text="@string/cash"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="@dimen/font_default"
+        android:textSize="@dimen/font_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/open_wallets_home_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@null"
+        android:backgroundTintMode="screen"
         android:src="@drawable/chevron_down"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView_cash_home" />
+        app:layout_constraintTop_toBottomOf="@id/label_home_text" />
 
     <TextView
-        android:id="@+id/textView_balance"
+        android:id="@+id/balance_home_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="123dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/poppins_bold"
         android:letterSpacing="0.01"
         android:textColor="@color/black"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/open_wallets_home_button"
         tools:text="$ 1,452.83" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/month_recyclerView_home"
-        android:layout_width="match_parent"
+        android:id="@+id/months_home_list"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="269dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/balance_home_text" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/detail_recyclerView_home"
-        android:layout_width="match_parent"
+        android:id="@+id/transactions_home_list"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/months_home_list" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

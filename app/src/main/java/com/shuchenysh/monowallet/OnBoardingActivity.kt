@@ -12,7 +12,8 @@ class OnBoardingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOnboardingBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.getStartOnBoardingButton.setOnClickListener {
             val intent = Intent(this@OnBoardingActivity, LoginActivity::class.java)

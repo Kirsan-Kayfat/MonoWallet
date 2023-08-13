@@ -38,5 +38,7 @@
     <string name="password_is_incorrect">Password is incorrect</string>
     <string name="password_less_than_six_characters">Password cannot be less than 6 characters</string>
     <string name="the_passwords_don_t_match">The passwords don\'t match</string>
+    <string name="wallets">Wallets</string>
+    <string name="debit_card">Debit Card</string>
 
 </resources>

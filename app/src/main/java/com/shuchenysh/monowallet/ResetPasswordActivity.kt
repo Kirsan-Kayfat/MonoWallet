@@ -30,8 +30,13 @@ class ResetPasswordActivity : AppCompatActivity() {
                 }
             }
 
+            backResetPasswordButton.setOnClickListener {
+                finish()
+            }
+
             passwordTextEditFieldResetPasswordInputEditField.doAfterTextChanged {
                 passwordTextFieldResetPasswordInputLayoutField.error = null
+                confirmTextFieldResetPasswordInputLayoutField.error = null
             }
 
             confirmTextInputEditFieldResetPasswordInputEditField.doAfterTextChanged {
