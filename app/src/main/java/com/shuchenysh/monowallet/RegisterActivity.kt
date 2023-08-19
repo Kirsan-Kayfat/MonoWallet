@@ -17,23 +17,25 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.registerRegisterButton.setOnClickListener {
-            val login = binding.emailFieldRegisterText.text.toString().trim()
-            val password = binding.passwordRegisterTextInputEdit.text.toString().trim()
+        with (binding) {
+            registerRegisterButton.setOnClickListener {
+                val login = emailFieldRegisterText.text.toString().trim()
+                val password = passwordRegisterTextInputEdit.text.toString().trim()
 
-            if (!isValidateEmailField(login) and !isValidatePasswordField(password)) {
-                return@setOnClickListener
+                if (!isValidateEmailField(login) and !isValidatePasswordField(password)) {
+                    return@setOnClickListener
+                }
+                val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
+                startActivity(intent)
             }
-            val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
-            startActivity(intent)
-        }
 
-        binding.emailFieldRegisterText.doAfterTextChanged { text ->
-            isValidateEmailField(text.toString())
-        }
+            emailFieldRegisterText.doAfterTextChanged { text ->
+                isValidateEmailField(text.toString())
+            }
 
-        binding.passwordRegisterTextInputEdit.doAfterTextChanged { text ->
-            isValidatePasswordField(text.toString())
+            passwordRegisterTextInputEdit.doAfterTextChanged { text ->
+                isValidatePasswordField(text.toString())
+            }
         }
     }
 

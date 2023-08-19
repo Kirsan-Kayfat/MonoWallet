@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.shuchenysh.monowallet.databinding.ActivityHomeBinding
+
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
@@ -16,9 +17,14 @@ class HomeActivity : AppCompatActivity() {
 
         with(binding) {
             openWalletsHomeButton.setOnClickListener {
-                val intent = Intent (this@HomeActivity, WalletsActivity::class.java)
+                val intent = Intent(this@HomeActivity, WalletsActivity::class.java)
                 startActivity(intent)
             }
+
+            val adapter = RecyclerViewAdapter()
+            transactionsHomeList.adapter = adapter
+
+
         }
     }
 

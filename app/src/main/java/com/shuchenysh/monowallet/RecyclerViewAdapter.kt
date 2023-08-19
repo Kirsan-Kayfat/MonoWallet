@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionViewHolder>() {
-    var transactionInfoList = listOf<Transaction>()
+    var transactionInfoList = mutableListOf<Transaction>()
     set(value) {
         field = value
         notifyDataSetChanged()

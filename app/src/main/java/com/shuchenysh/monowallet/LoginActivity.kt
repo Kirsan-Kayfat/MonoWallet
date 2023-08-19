@@ -23,11 +23,11 @@ class LoginActivity : AppCompatActivity() {
                 val login = loginLoginTextInputEdit.text.toString().trim()
                 val password = passwordLoginTextInputEdit.text.toString().trim()
 
-                if (!isValidateEmailField(login) and !isValidatePasswordField(password))
+                if (!isValidateEmailField(login) && !isValidatePasswordField(password))
                     return@setOnClickListener
 
-                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                startActivity(intent)
+                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                    startActivity(intent)
             }
 
             loginLoginTextInputEdit.doAfterTextChanged {
