@@ -26,8 +26,8 @@ class LoginActivity : AppCompatActivity() {
                 if (!isValidateEmailField(login) && !isValidatePasswordField(password))
                     return@setOnClickListener
 
-                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                    startActivity(intent)
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
 
             loginLoginTextInputEdit.doAfterTextChanged {
@@ -77,11 +77,13 @@ class LoginActivity : AppCompatActivity() {
                     getString(R.string.the_field_cannot_be_empty)
                 false
             }
+
             password != PASSWORD -> {
                 binding.passwordLoginTextInputLayout.error =
                     getString(R.string.password_is_incorrect)
                 false
             }
+
             else -> {
                 binding.passwordLoginTextInputLayout.error = null
                 true
