@@ -14,13 +14,15 @@ class CheckEmailActivity : AppCompatActivity() {
         binding = ActivityCheckEmailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.openEmailAppCheckEmailButton.setOnClickListener {
-            val intent = Intent(this@CheckEmailActivity, ResetPasswordActivity::class.java)
-            startActivity(intent)
-        }
+        with (binding) {
+            openEmailAppCheckEmailButton.setOnClickListener {
+                val intent = Intent(this@CheckEmailActivity, ResetPasswordActivity::class.java)
+                startActivity(intent)
+            }
 
-        binding.backCheckEmailImage.setOnClickListener {
-            finish()
+            backCheckEmailImage.setOnClickListener {
+                finish()
+            }
         }
     }
 }

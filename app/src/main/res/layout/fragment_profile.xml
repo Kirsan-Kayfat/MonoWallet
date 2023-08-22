@@ -4,21 +4,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
     tools:context=".screens.profile.ProfileFragment">
 
     <TextView
         android:id="@+id/label_text_profile_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/setting"
-        android:letterSpacing="0.15"
-        android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.15"
+        android:text="@string/setting"
         android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/photo_profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_text_profile_text"
+        app:siBorderColor="@color/black"
+        app:siBorderWidth="6sp"/>
+
+    <TextView
+        android:id="@+id/name_profile_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Jeffery Thomson"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_profile_image" />
+
+    <TextView
+        android:id="@+id/profile_title_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/profile_bottom_bar"
+        android:textAllCaps="true"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_profile_image" />
+
+    <TextView
+        android:id="@+id/change_password_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Change Password"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_title_profile_text" />
+
+    <TextView
+        android:id="@+id/currency_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Currency"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/change_password_profile_text" />
+
+    <TextView
+        android:id="@+id/light_mode_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Light / Dark Mode"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currency_profile_text" />
+
+    <TextView
+        android:id="@+id/wallet_title_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Wallet"
+        android:textAllCaps="true"
+        android:textSize="@dimen/font_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/light_mode_profile_text" />
+
+    <TextView
+        android:id="@+id/rate_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Rate on Playstore"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wallet_title_profile_text" />
+
+    <TextView
+        android:id="@+id/contact_us_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Contact Us"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rate_profile_text" />
+
+    <TextView
+        android:id="@+id/about_profile_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="About"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_us_profile_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

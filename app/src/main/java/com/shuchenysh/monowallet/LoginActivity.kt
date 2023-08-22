@@ -11,12 +11,11 @@ import com.shuchenysh.monowallet.extension.isEmailInvalid
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         with(binding) {
             loginLoginButton.setOnClickListener {
