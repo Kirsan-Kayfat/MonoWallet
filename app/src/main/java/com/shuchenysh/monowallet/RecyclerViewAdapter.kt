@@ -1,46 +1,34 @@
 package com.shuchenysh.monowallet
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.shuchenysh.monowallet.databinding.ItemTransactionBinding
 
 class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.TransactionViewHolder>() {
-    var transactionInfoList = mutableListOf<Transaction>()
+    var transactions: List<Transaction> = listOf()
     set(value) {
         field = value
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_transaction, parent, false)
-        return TransactionViewHolder(view)
+        val binding = ItemTransactionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return TransactionViewHolder(binding)
     }
 
-    override fun getItemCount() = transactionInfoList.size
+    override fun getItemCount() = transactions.size
 
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
-        val transaction = transactionInfoList[position]
-        val money = transaction.money
-        val arrow = transaction.arrow
-        val category = transaction.category
-        val amount = transaction.amount
-        with(holder) {
-            imageViewArrow.setImageResource(arrow)
-            textViewMoney.text = money.toString()
-            imageViewCategory.setImageResource(category)
-            textViewDescription.text = amount
+        val transaction = transactions[position]
+        with(holder.binding) {
+            arrowItemImage.setImageResource(transaction.arrow)
+            moneyItemText.text = transaction.money.toString()
+            categoryItemImage.setImageResource(transaction.category)
+            descriptionItemText.text = transaction.amount
         }
     }
 
-    inner class TransactionViewHolder(itemView: View) : ViewHolder(itemView) {
-        val imageViewArrow: ImageView = itemView.findViewById(R.id.image_view_item)
-        val textViewMoney: TextView = itemView.findViewById(R.id.money_text_view_item)
-        val textViewDescription: TextView = itemView.findViewById(R.id.description_text_view_item)
-        val imageViewCategory: ImageView = itemView.findViewById(R.id.category_image_view_item)
-    }
+    class TransactionViewHolder(val binding: ItemTransactionBinding) : ViewHolder(binding.root)
 }

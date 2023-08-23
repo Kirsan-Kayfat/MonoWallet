@@ -85,6 +85,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/money_new_transaction_edit_text"
             android:layout_width="match_parent"
+            android:inputType="numberDecimal"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
