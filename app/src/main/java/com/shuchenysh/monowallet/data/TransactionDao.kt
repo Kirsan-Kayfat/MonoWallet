@@ -16,6 +16,6 @@ interface TransactionDao {
     fun add(transaction: Transaction) : Completable
 
     @Query("SELECT * FROM transactions")
-    fun getTransactions(): LiveData<List<Transaction>>
+    fun getTransactions(): List<Transaction>
 
 }

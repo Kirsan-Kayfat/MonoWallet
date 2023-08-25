@@ -14,8 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
+
         navController = Navigation.findNavController(this, R.id.fragment_container_main_activity_container)
         binding.bottomNavViewMain.setupWithNavController(navController)
     }
