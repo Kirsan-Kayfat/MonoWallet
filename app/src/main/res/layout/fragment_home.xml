@@ -58,14 +58,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactions_home_list"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="20dp"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/months_home_list" />
+        app:layout_constraintTop_toBottomOf="@id/months_home_list"
+        tools:listitem="@layout/item_transaction"
+        tools:itemCount="10"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

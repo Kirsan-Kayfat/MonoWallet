@@ -47,6 +47,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amount_new_transaction_edit_text"
             android:layout_width="match_parent"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>

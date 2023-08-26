@@ -8,15 +8,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import com.shuchenysh.monowallet.R
-import com.shuchenysh.monowallet.Transaction
-import com.shuchenysh.monowallet.data.TransactionViewModel
+import com.shuchenysh.monowallet.TransactionHelper
+import com.shuchenysh.monowallet.screens.models.TransactionModel
 import com.shuchenysh.monowallet.databinding.FragmentNewTransactionBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
 
 class NewTransactionFragment : Fragment() {
 
     private lateinit var binding: FragmentNewTransactionBinding
-    private var transactions = mutableListOf<Transaction>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentNewTransactionBinding.inflate(inflater, container, false)
@@ -28,10 +31,14 @@ class NewTransactionFragment : Fragment() {
         with(binding) {
             addNewTransactionButton.setOnClickListener {
                 val transaction = getTransaction()
-                if (transaction.amount.isEmailInvalid()) return@setOnClickListener
-                transactions.add(transaction)
+                val isTransactionAdded = TransactionHelper.addTransaction(transaction)
+                val message = if (isTransactionAdded) {
+                    "Completed"
+                } else {
+                    "Error"
+                }
+                Toast.makeText(this@NewTransactionFragment.context, message, Toast.LENGTH_SHORT).show()
 
-                Toast.makeText(this@NewTransactionFragment.context, "Completed", Toast.LENGTH_SHORT).show()
                 moneyNewTransactionEditText.text = null
             }
 
@@ -41,13 +48,14 @@ class NewTransactionFragment : Fragment() {
         }
     }
 
-    private fun getTransaction(): Transaction {
+    private fun getTransaction(): TransactionModel {
         with(binding) {
-            val email = amountNewTransactionEditText.text.toString()
-            val category = R.drawable.coffee
-            val arrow = R.drawable.arrow_up
-            val money = moneyNewTransactionEditText.text.toString().toInt()
-            return Transaction(0, arrow, email, category, money)
+            val money = moneyNewTransactionEditText.text.toString().trim()
+            val category = categoryNewTransactionEditText.text.toString().trim()
+            return TransactionModel(
+                money = money,
+                category = category
+            )
         }
     }
 
