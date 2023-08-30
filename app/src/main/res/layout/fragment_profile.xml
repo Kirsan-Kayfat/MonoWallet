@@ -16,7 +16,7 @@
         android:paddingHorizontal="20dp">
 
         <TextView
-            android:id="@+id/label_text_profile_text"
+            android:id="@+id/label_profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -36,7 +36,7 @@
             android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_text_profile_text"
+            app:layout_constraintTop_toBottomOf="@id/label_profile_text"
             app:siBorderColor="@color/black"
             app:siBorderWidth="6sp" />
 
@@ -73,7 +73,6 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="Change Password"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profile_title_profile_text" />
 
@@ -85,7 +84,6 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="Currency"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/change_password_profile_text" />
 
@@ -97,7 +95,6 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="Light / Dark Mode"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/currency_profile_text" />
 
@@ -121,7 +118,6 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="Rate on Playstore"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wallet_title_profile_text" />
 
@@ -133,7 +129,6 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="Contact Us"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rate_profile_text" />
 
@@ -145,19 +140,9 @@
             android:fontFamily="@font/poppins_semi_bold"
             android:text="About"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/contact_us_profile_text" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/about_profile_text"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </androidx.core.widget.NestedScrollView>

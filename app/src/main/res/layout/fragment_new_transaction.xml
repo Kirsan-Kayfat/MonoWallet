@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_new_transaction_container"
@@ -16,7 +15,6 @@
         android:letterSpacing="0.15"
         android:text="@string/new_transaction_label"
         android:textAllCaps="true"
-        android:textSize="@dimen/font_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/label_text_new_transaction_text" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/amount_new_transaction_text_input"
+        android:id="@+id/amount_field_new_transaction_text_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -47,14 +45,14 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amount_new_transaction_edit_text"
             android:layout_width="match_parent"
-            android:singleLine="true"
+            android:layout_height="wrap_content"
             android:imeOptions="actionNext"
-            android:layout_height="wrap_content" />
+            android:lines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/category_new_transaction_text_input"
+        android:id="@+id/category_field_new_transaction_text_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -64,17 +62,20 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/amount_new_transaction_text_input">
+        app:layout_constraintTop_toBottomOf="@id/amount_field_new_transaction_text_input">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/category_new_transaction_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:imeOptions="actionNext"
+            android:lines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/money_new_transaction_text_input"
+        android:id="@+id/money_field_new_transaction_text_input"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -84,13 +85,15 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category_new_transaction_text_input">
+        app:layout_constraintTop_toBottomOf="@id/category_field_new_transaction_text_input">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/money_new_transaction_edit_text"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
             android:inputType="numberDecimal"
-            android:layout_height="wrap_content" />
+            android:lines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,6 +112,6 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/money_new_transaction_text_input" />
+        app:layout_constraintTop_toBottomOf="@id/money_field_new_transaction_text_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
