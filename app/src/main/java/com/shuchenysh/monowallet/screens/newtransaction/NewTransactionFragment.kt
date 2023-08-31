@@ -43,7 +43,7 @@ class NewTransactionFragment : Fragment() {
             }
 
             amountNewTransactionEditText.doAfterTextChanged {
-                amountNewTransactionTextInput.error = null
+                amountFieldNewTransactionTextInput.error = null
             }
         }
     }
@@ -62,18 +62,18 @@ class NewTransactionFragment : Fragment() {
     private fun isValidateEmailField(email: String): Boolean {
         return when {
             email.isEmpty() -> {
-                binding.amountNewTransactionTextInput.error =
+                binding.amountFieldNewTransactionTextInput.error =
                     getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
             email.isEmailInvalid() -> {
-                binding.amountNewTransactionTextInput.error = getString(R.string.email_is_invalid)
+                binding.amountFieldNewTransactionTextInput.error = getString(R.string.email_is_invalid)
                 false
             }
 
             else -> {
-                binding.amountNewTransactionTextInput.error = null
+                binding.amountFieldNewTransactionTextInput.error = null
                 true
             }
         }

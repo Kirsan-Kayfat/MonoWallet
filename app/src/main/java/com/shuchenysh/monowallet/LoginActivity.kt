@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doAfterTextChanged
-import androidx.lifecycle.ViewModelProvider
 import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
+import com.shuchenysh.monowallet.extension.isEmailValid
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,15 +18,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         with(binding) {
-            loginLoginButton.setOnClickListener {
+            enterLoginButton.setOnClickListener {
                 val login = loginLoginTextInputEdit.text.toString().trim()
                 val password = passwordLoginTextInputEdit.text.toString().trim()
 
-                if (!isValidateEmailField(login) && !isValidatePasswordField(password))
+                if (!isValidateEmailField(login) && !isValidatePasswordField(password)) {
                     return@setOnClickListener
-
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
+                } else {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                }
             }
 
             loginLoginTextInputEdit.doAfterTextChanged {
@@ -57,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            email.isEmailInvalid() -> {
+            email.isEmailValid() -> {
                 binding.loginLoginTextInputLayout.error = getString(R.string.email_is_invalid)
                 false
             }
@@ -77,20 +78,10 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            password != PASSWORD -> {
-                binding.passwordLoginTextInputLayout.error =
-                    getString(R.string.password_is_incorrect)
-                false
-            }
-
             else -> {
                 binding.passwordLoginTextInputLayout.error = null
                 true
             }
         }
-    }
-
-    companion object {
-        private const val PASSWORD = "12345"
     }
 }

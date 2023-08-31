@@ -3,7 +3,6 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.widget.doOnTextChanged
 import com.shuchenysh.monowallet.databinding.ActivityForgotPasswordBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
 
@@ -38,12 +37,12 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private fun isValidateEmailField(email: String): Boolean {
         return when {
             email.isEmpty() -> {
-                binding.emailForgotPasswordTextInputLayout.error = getString(R.string.the_field_cannot_be_empty)
+                binding.emailForgotPasswordTextInputEdit.error = getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
             email.isEmailInvalid() -> {
-                binding.emailForgotPasswordTextInputLayout.error = getString(R.string.email_is_invalid)
+                binding.emailForgotPasswordTextInputEdit.error = getString(R.string.email_is_invalid)
                 false
             }
 

@@ -18,7 +18,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         with (binding) {
-            registerRegisterButton.setOnClickListener {
+            enterRegisterButton.setOnClickListener {
                 val login = emailFieldRegisterText.text.toString().trim()
                 val password = passwordRegisterTextInputEdit.text.toString().trim()
 

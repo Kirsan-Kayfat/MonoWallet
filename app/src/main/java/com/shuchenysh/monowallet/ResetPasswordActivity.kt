@@ -18,8 +18,8 @@ class ResetPasswordActivity : AppCompatActivity() {
 
         with(binding) {
             openEmailAppResetPasswordButton.setOnClickListener {
-                val password = passwordTextEditFieldResetPasswordInputEditField.text.toString().trim()
-                val confirm = confirmTextInputEditFieldResetPasswordInputEditField.text.toString().trim()
+                val password = passwordFieldResetPasswordInputEditText.text.toString().trim()
+                val confirm = confirmFieldResetPasswordInputEditText.text.toString().trim()
                 if (password.isNotEmpty() && confirm.isNotEmpty() && password == confirm) {
                     val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
                     startActivity(intent)
@@ -34,13 +34,13 @@ class ResetPasswordActivity : AppCompatActivity() {
                 finish()
             }
 
-            passwordTextEditFieldResetPasswordInputEditField.doAfterTextChanged {
-                passwordTextFieldResetPasswordInputLayoutField.error = null
-                confirmTextFieldResetPasswordInputLayoutField.error = null
+            passwordFieldResetPasswordInputEditText.doAfterTextChanged {
+                passwordFieldResetPasswordInputLayoutField.error = null
+                confirmFieldResetPasswordInputLayoutField.error = null
             }
 
-            confirmTextInputEditFieldResetPasswordInputEditField.doAfterTextChanged {
-                confirmTextFieldResetPasswordInputLayoutField.error = null
+            confirmFieldResetPasswordInputEditText.doAfterTextChanged {
+                confirmFieldResetPasswordInputLayoutField.error = null
             }
         }
     }
@@ -48,12 +48,12 @@ class ResetPasswordActivity : AppCompatActivity() {
     private fun isCorrectlyPassword(password: String) {
         with(binding) {
             if (password.isEmpty()) {
-                passwordTextFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
+                passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
             } else if (password.length < 6) {
-                passwordTextFieldResetPasswordInputLayoutField.error =
+                passwordFieldResetPasswordInputLayoutField.error =
                     getString(R.string.password_less_than_six_characters)
             } else {
-                passwordTextFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
+                passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
             }
         }
     }
@@ -61,9 +61,9 @@ class ResetPasswordActivity : AppCompatActivity() {
     private fun isCorrectlyConfirm(confirm: String) {
         with(binding) {
             if (confirm.isEmpty()) {
-                confirmTextFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
+                confirmFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
             } else {
-                confirmTextFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
+                confirmFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
             }
         }
     }

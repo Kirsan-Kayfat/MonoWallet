@@ -12,7 +12,7 @@ class WalletsActivity : AppCompatActivity() {
         binding = ActivityWalletsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.closeScreenWalletsImage.setOnClickListener {
+        binding.closeScreenWalletsButton.setOnClickListener {
             finish()
         }
     }
