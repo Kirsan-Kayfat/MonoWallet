@@ -41,5 +41,8 @@
     <string name="wallets">Wallets</string>
     <string name="debit_card">Debit Card</string>
     <string name="setting">Setting</string>
+    <string name="apply">Apply</string>
+    <string name="completed">Completed</string>
+    <string name="error">Error</string>
 
 </resources>

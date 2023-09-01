@@ -3,7 +3,6 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import com.shuchenysh.monowallet.databinding.ActivityResetPasswordBinding
 
@@ -20,12 +19,13 @@ class ResetPasswordActivity : AppCompatActivity() {
             openEmailAppResetPasswordButton.setOnClickListener {
                 val password = passwordFieldResetPasswordInputEditText.text.toString().trim()
                 val confirm = confirmFieldResetPasswordInputEditText.text.toString().trim()
+
                 if (password.isNotEmpty() && confirm.isNotEmpty() && password == confirm) {
                     val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
                     startActivity(intent)
                 } else {
-                    isCorrectlyPassword(password)
-                    isCorrectlyConfirm(confirm)
+                    isPasswordCorrect(password)
+                    isConfirmCorrect(confirm)
                     return@setOnClickListener
                 }
             }
@@ -45,7 +45,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
     }
 
-    private fun isCorrectlyPassword(password: String) {
+    private fun isPasswordCorrect(password: String) {
         with(binding) {
             if (password.isEmpty()) {
                 passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
@@ -58,7 +58,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
     }
 
-    private fun isCorrectlyConfirm(confirm: String) {
+    private fun isConfirmCorrect(confirm: String) {
         with(binding) {
             if (confirm.isEmpty()) {
                 confirmFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)

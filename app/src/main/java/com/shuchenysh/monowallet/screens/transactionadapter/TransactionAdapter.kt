@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.shuchenysh.monowallet.TransactionHelper
 import com.shuchenysh.monowallet.databinding.ItemTransactionBinding
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.TransactionViewHolder>() {
+class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
         val inflater = LayoutInflater.from(parent.context)

@@ -6,19 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.shuchenysh.monowallet.screens.transactionadapter.RecyclerViewAdapter
+import com.shuchenysh.monowallet.screens.transactionadapter.TransactionAdapter
 import com.shuchenysh.monowallet.WalletsActivity
 import com.shuchenysh.monowallet.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var adapter: RecyclerViewAdapter
+    private lateinit var adapter: TransactionAdapter
     private lateinit var months: List<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = RecyclerViewAdapter()
+        adapter = TransactionAdapter()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

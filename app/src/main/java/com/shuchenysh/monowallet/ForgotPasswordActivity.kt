@@ -20,10 +20,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 val text = emailForgotPasswordTextInputEdit.text.toString()
                 if (!isValidateEmailField(text)) return@setOnClickListener
 
-                val intent = Intent(
-                    this@ForgotPasswordActivity,
-                    ResetPasswordActivity::class.java
-                )
+                val intent = Intent(this@ForgotPasswordActivity, CheckEmailActivity::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -37,12 +34,12 @@ class ForgotPasswordActivity : AppCompatActivity() {
     private fun isValidateEmailField(email: String): Boolean {
         return when {
             email.isEmpty() -> {
-                binding.emailForgotPasswordTextInputEdit.error = getString(R.string.the_field_cannot_be_empty)
+                binding.emailFieldForgotPasswordTextInputLayout.error = getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
             email.isEmailInvalid() -> {
-                binding.emailForgotPasswordTextInputEdit.error = getString(R.string.email_is_invalid)
+                binding.emailFieldForgotPasswordTextInputLayout.error = getString(R.string.email_is_invalid)
                 false
             }
 
