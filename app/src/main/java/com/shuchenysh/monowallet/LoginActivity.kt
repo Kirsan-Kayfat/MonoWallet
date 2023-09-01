@@ -3,10 +3,10 @@ package com.shuchenysh.monowallet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.widget.doAfterTextChanged
 import com.shuchenysh.monowallet.databinding.ActivityLoginBinding
 import com.shuchenysh.monowallet.extension.isEmailInvalid
-import com.shuchenysh.monowallet.extension.isEmailValid
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,12 +21,17 @@ class LoginActivity : AppCompatActivity() {
             enterLoginButton.setOnClickListener {
                 val login = loginLoginTextInputEdit.text.toString().trim()
                 val password = passwordLoginTextInputEdit.text.toString().trim()
+                Log.d("mess", isValidateEmailField(login).toString())
+                Log.d("mess", isValidatePasswordField(password).toString())
+                when {
+                    !isValidatePasswordField(password) and !isValidateEmailField(login) -> {
+                        return@setOnClickListener
+                    }
 
-                if (!isValidateEmailField(login) && !isValidatePasswordField(password)) {
-                    return@setOnClickListener
-                } else {
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(intent)
+                    else -> {
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
             }
 
@@ -58,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            email.isEmailValid() -> {
+            email.isEmailInvalid() -> {
                 binding.loginLoginTextInputLayout.error = getString(R.string.email_is_invalid)
                 false
             }
