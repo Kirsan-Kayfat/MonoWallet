@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.shuchenysh.monowallet.TransactionHelper
 import com.shuchenysh.monowallet.screens.transactionadapter.TransactionAdapter
 import com.shuchenysh.monowallet.WalletsActivity
 import com.shuchenysh.monowallet.databinding.FragmentHomeBinding
@@ -14,7 +17,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: TransactionAdapter
-    private lateinit var months: List<String>
+    private var balance = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,21 +32,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        months = listOf(
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        )
-
         with(binding) {
             transactionsHomeList.adapter = adapter
 
@@ -51,6 +39,14 @@ class HomeFragment : Fragment() {
                 val intent = Intent(this@HomeFragment.context, WalletsActivity::class.java)
                 startActivity(intent)
             }
+        }
+    }
+
+    fun setBalance(balance: String) {
+        var balance = 0
+        for (i in TransactionHelper.getTransactions()) {
+            balance += i.money.toInt()
+
         }
     }
 }

@@ -36,14 +36,16 @@ class NewTransactionFragment : Fragment() {
                 } else {
                     getString(R.string.error)
                 }
-
                 Toast.makeText(this@NewTransactionFragment.context, message, Toast.LENGTH_SHORT).show()
-
                 moneyNewTransactionEditText.text = null
             }
 
             amountNewTransactionEditText.doAfterTextChanged {
                 amountFieldNewTransactionTextInput.error = null
+            }
+
+            categoryNewTransactionEditText.doAfterTextChanged {
+                categoryFieldNewTransactionTextInput.error = null
             }
         }
     }
@@ -51,9 +53,16 @@ class NewTransactionFragment : Fragment() {
     private fun getTransaction(): TransactionModel {
         with(binding) {
             val money = moneyNewTransactionEditText.text.toString().trim()
+            var arrow = if (money.toInt() < 0) {
+                R.drawable.arrow_down
+            } else {
+                R.drawable.arrow_up
+            }
+
             val category = categoryNewTransactionEditText.text.toString().trim()
             return TransactionModel(
-                money = money,
+                arrow = arrow,
+                money = "$ $money",
                 category = category
             )
         }

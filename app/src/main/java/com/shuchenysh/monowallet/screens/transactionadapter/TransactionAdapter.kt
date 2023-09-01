@@ -18,6 +18,7 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = TransactionHelper.getTransactions()[position]
         with(holder.binding) {
+            arrowItemImage.setImageResource(transaction.arrow)
             moneyItemText.text = transaction.money
             descriptionItemText.text = transaction.category
         }
