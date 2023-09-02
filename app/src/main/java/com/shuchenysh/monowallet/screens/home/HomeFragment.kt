@@ -42,11 +42,17 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun setBalance(balance: String) {
-        var balance = 0
-        for (i in TransactionHelper.getTransactions()) {
-            balance += i.money.toInt()
+    override fun onResume() {
+        super.onResume()
+        setBalance()
+    }
 
+    private fun setBalance() {
+        var balance = 0.0
+        for (i in TransactionHelper.getTransactions()) {
+            val number = i.money.replace("$", "").trim()
+            balance += number.toDouble()
         }
+        binding.balanceHomeText.text = "$ $balance"
     }
 }
