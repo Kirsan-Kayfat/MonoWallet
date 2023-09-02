@@ -54,9 +54,9 @@ class NewTransactionFragment : Fragment() {
         with(binding) {
             val money = moneyNewTransactionEditText.text.toString().trim()
             val arrow = if (money.toInt() < 0) {
-                R.drawable.arrow_up
-            } else {
                 R.drawable.arrow_down
+            } else {
+                R.drawable.arrow_up
             }
 
             val category = categoryNewTransactionEditText.text.toString().trim()
