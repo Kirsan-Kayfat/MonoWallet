@@ -53,18 +53,26 @@ class NewTransactionFragment : Fragment() {
     private fun getTransaction(): TransactionModel {
         with(binding) {
             val money = moneyNewTransactionEditText.text.toString().trim()
-            var arrow = if (money.toInt() < 0) {
-                R.drawable.arrow_down
-            } else {
+            val arrow = if (money.toInt() < 0) {
                 R.drawable.arrow_up
+            } else {
+                R.drawable.arrow_down
             }
 
             val category = categoryNewTransactionEditText.text.toString().trim()
-            return TransactionModel(
-                arrow = arrow,
-                money = "$ $money",
-                category = category
-            )
+
+            return if (category.isNotEmpty()) {
+                TransactionModel(
+                    arrow = arrow,
+                    money = "$ $money",
+                    category = category
+                )
+            } else {
+                TransactionModel(
+                    arrow = arrow,
+                    money = "$ $money"
+                )
+            }
         }
     }
 }
