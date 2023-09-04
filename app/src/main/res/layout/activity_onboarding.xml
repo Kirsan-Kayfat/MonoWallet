@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
         android:fontFamily="@font/poppins_bold"
-        android:letterSpacing="0.17"
+        android:letterSpacing="0.15"
         android:text="@string/name_app"
         android:textAllCaps="true"
         android:textSize="@dimen/font_small"
@@ -27,15 +27,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:letterSpacing="0.17"
+        android:letterSpacing="0.15"
         android:text="@string/description_onBoarding"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/font_large"
-        app:layout_constraintBottom_toTopOf="@+id/getStart_onBoarding_button"
+        app:layout_constraintBottom_toTopOf="@id/getStart_onBoarding_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_onBoarding_image"
+        app:layout_constraintTop_toBottomOf="@id/image_onBoarding_image"
         app:lineHeight="27sp" />
 
     <ImageView
@@ -46,7 +46,7 @@
         android:src="@drawable/undraw_finance_onboarding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_onBoarding_text" />
+        app:layout_constraintTop_toBottomOf="@id/label_onBoarding_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/getStart_onBoarding_button"
@@ -57,7 +57,7 @@
         android:fontFamily="@font/poppins_regular"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:letterSpacing="0.17"
+        android:letterSpacing="0.15"
         android:text="@string/button_onBoarding"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
