@@ -53,7 +53,7 @@ class NewTransactionFragment : Fragment() {
     private fun getTransaction(): TransactionModel {
         with(binding) {
             val money = moneyNewTransactionEditText.text.toString().trim()
-            val arrow = if (money.toInt() < 0) {
+            val arrow = if (money.toDouble() < 0) {
                 R.drawable.arrow_down
             } else {
                 R.drawable.arrow_up

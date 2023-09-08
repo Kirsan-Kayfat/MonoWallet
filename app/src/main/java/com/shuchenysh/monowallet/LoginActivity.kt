@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
                 val password = passwordLoginTextInputEdit.text.toString().trim()
 
                 when {
-                    isValidatePasswordField(password) && isValidateEmailField(login) -> {
+                    isValidatePasswordField(password) and isValidateEmailField(login) -> {
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                     }

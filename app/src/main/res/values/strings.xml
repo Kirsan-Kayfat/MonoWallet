@@ -44,5 +44,6 @@
     <string name="apply">Apply</string>
     <string name="completed">Completed</string>
     <string name="error">Error</string>
+    <string name="default_category">Default category</string>
 
 </resources>
