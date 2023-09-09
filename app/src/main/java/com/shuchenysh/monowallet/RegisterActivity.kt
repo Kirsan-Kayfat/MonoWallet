@@ -22,12 +22,11 @@ class RegisterActivity : AppCompatActivity() {
                 val login = emailFieldRegisterText.text.toString().trim()
                 val password = passwordRegisterTextInputEdit.text.toString().trim()
 
-                if (isValidateEmailField(login) and isValidatePasswordField(password)) {
-                    val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
-                    startActivity(intent)
-                } else {
+                if (!isValidateEmailField(login) or !isValidatePasswordField(password)) {
                     return@setOnClickListener
                 }
+                val intent = Intent(this@RegisterActivity, CheckEmailActivity::class.java)
+                startActivity(intent)
             }
 
             emailFieldRegisterText.doAfterTextChanged {
@@ -52,24 +51,32 @@ class RegisterActivity : AppCompatActivity() {
                 false
             }
 
-            else -> true
-
+            else -> {
+                true
+            }
         }
     }
 
     private fun isValidatePasswordField(password: String): Boolean {
-        return if (password.isEmpty()) {
-            binding.passwordRegisterTextInputLayout.error =
-                getString(R.string.the_field_cannot_be_empty)
-            false
-        } else if (password.length < 6) {
-            binding.passwordRegisterTextInputLayout.error =
-                getString(R.string.password_less_than_six_characters)
-            false
-        } else {
-            true
-        }
+        return when {
+            password.isEmpty() -> {
+                binding.passwordRegisterTextInputLayout.error = getString(R.string.the_field_cannot_be_empty)
+                false
+            }
 
+            password.length < MAX_PASSWORD_LENGTH -> {
+                binding.passwordRegisterTextInputLayout.error = getString(R.string.password_less_than_six_characters)
+                false
+            }
+
+            else -> {
+                true
+            }
+        }
+    }
+
+    companion object {
+        private const val MAX_PASSWORD_LENGTH = 6
     }
 }
 

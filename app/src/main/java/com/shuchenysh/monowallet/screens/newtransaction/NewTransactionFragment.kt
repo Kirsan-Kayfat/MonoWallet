@@ -16,10 +16,6 @@ class NewTransactionFragment : Fragment() {
 
     private lateinit var binding: FragmentNewTransactionBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentNewTransactionBinding.inflate(inflater, container, false)
         return binding.root
@@ -61,18 +57,13 @@ class NewTransactionFragment : Fragment() {
 
             val category = categoryNewTransactionEditText.text.toString().trim()
 
-            return if (category.isNotEmpty()) {
-                TransactionModel(
-                    arrow = arrow,
-                    money = "$ $money",
-                    category = category
-                )
-            } else {
-                TransactionModel(
-                    arrow = arrow,
-                    money = "$ $money"
-                )
-            }
+            return TransactionModel(
+                arrow = arrow,
+                money = "$ $money",
+                category = category.ifEmpty {
+                    getString(R.string.default_category)
+                }
+            )
         }
     }
 }

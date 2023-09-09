@@ -21,16 +21,12 @@ class LoginActivity : AppCompatActivity() {
                 val login = loginLoginTextInputEdit.text.toString().trim()
                 val password = passwordLoginTextInputEdit.text.toString().trim()
 
-                when {
-                    isValidatePasswordField(password) and isValidateEmailField(login) -> {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-
-                    else -> {
-                        return@setOnClickListener
-                    }
+                if (!isValidatePasswordField(password) or !isValidateEmailField(login)) {
+                    return@setOnClickListener
                 }
+
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
 
             loginLoginTextInputEdit.doAfterTextChanged {
@@ -56,8 +52,7 @@ class LoginActivity : AppCompatActivity() {
     private fun isValidateEmailField(email: String): Boolean {
         return when {
             email.isEmpty() -> {
-                binding.loginLoginTextInputLayout.error =
-                    getString(R.string.the_field_cannot_be_empty)
+                binding.loginLoginTextInputLayout.error = getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
@@ -67,7 +62,6 @@ class LoginActivity : AppCompatActivity() {
             }
 
             else -> {
-                binding.loginLoginTextInputLayout.error = null
                 true
             }
         }
@@ -76,13 +70,11 @@ class LoginActivity : AppCompatActivity() {
     private fun isValidatePasswordField(password: String): Boolean {
         return when {
             password.isEmpty() -> {
-                binding.passwordLoginTextInputLayout.error =
-                    getString(R.string.the_field_cannot_be_empty)
+                binding.passwordLoginTextInputLayout.error = getString(R.string.the_field_cannot_be_empty)
                 false
             }
 
             else -> {
-                binding.passwordLoginTextInputLayout.error = null
                 true
             }
         }
