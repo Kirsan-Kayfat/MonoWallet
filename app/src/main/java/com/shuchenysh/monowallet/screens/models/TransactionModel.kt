@@ -1,7 +1,9 @@
 package com.shuchenysh.monowallet.screens.models
 
+import androidx.annotation.DrawableRes
+
 data class TransactionModel(
-    val arrow: Int,
     val money: String,
-    val category: String = "Without category"
+    val category: String,
+    @DrawableRes val arrow: Int
 )

@@ -17,9 +17,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
         with(binding) {
             sendLinkForgotPasswordButton.setOnClickListener {
-                val text = emailForgotPasswordTextInputEdit.text.toString()
-                if (!isValidateEmailField(text)) return@setOnClickListener
-
+                val email = emailForgotPasswordTextInputEdit.text.toString()
+                if (!isValidateEmailField(email)) {
+                    return@setOnClickListener
+                }
                 val intent = Intent(this@ForgotPasswordActivity, CheckEmailActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -43,7 +44,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 false
             }
 
-            else -> true
+            else -> {
+                true
+            }
         }
     }
 }

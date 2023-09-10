@@ -18,16 +18,14 @@ class ResetPasswordActivity : AppCompatActivity() {
         with(binding) {
             openEmailAppResetPasswordButton.setOnClickListener {
                 val password = passwordFieldResetPasswordInputEditText.text.toString().trim()
-                val confirm = confirmFieldResetPasswordInputEditText.text.toString().trim()
+                val repeatPassword = confirmFieldResetPasswordInputEditText.text.toString().trim()
 
-                if (password.isNotEmpty() && confirm.isNotEmpty() && password == confirm) {
-                    val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    isPasswordCorrect(password)
-                    isConfirmCorrect(confirm)
+                if (!validatePasswords(password, repeatPassword)) {
                     return@setOnClickListener
                 }
+
+                val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
+                startActivity(intent)
             }
 
             backResetPasswordButton.setOnClickListener {
@@ -45,26 +43,32 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
     }
 
-    private fun isPasswordCorrect(password: String) {
-        with(binding) {
-            if (password.isEmpty()) {
-                passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
-            } else if (password.length < 6) {
-                passwordFieldResetPasswordInputLayoutField.error =
+    private fun validatePasswords(password: String, repeatPassword: String): Boolean {
+        return when {
+            password != repeatPassword -> {
+                binding.passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
+                binding.confirmFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
+                false
+            }
+
+            password.isEmpty() -> {
+                binding.passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
+                false
+            }
+
+            password.length < MAX_PASSWORD_LENGTH -> {
+                binding.passwordFieldResetPasswordInputLayoutField.error =
                     getString(R.string.password_less_than_six_characters)
-            } else {
-                passwordFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
+                false
+            }
+
+            else -> {
+                true
             }
         }
     }
 
-    private fun isConfirmCorrect(confirm: String) {
-        with(binding) {
-            if (confirm.isEmpty()) {
-                confirmFieldResetPasswordInputLayoutField.error = getString(R.string.the_field_cannot_be_empty)
-            } else {
-                confirmFieldResetPasswordInputLayoutField.error = getString(R.string.the_passwords_don_t_match)
-            }
-        }
+    companion object {
+        private const val MAX_PASSWORD_LENGTH = 6
     }
 }
